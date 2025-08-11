@@ -7,6 +7,7 @@ from knext.search.client import SearchClient
 
 logger = logging.getLogger(__name__)
 
+
 @SearchApiABC.register("openspg_search_api", as_default=True)
 class OpenSPGSearchAPI(SearchApiABC):
     def __init__(self, project_id=None, host_addr=None, **kwargs):

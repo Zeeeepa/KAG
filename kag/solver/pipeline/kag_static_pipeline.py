@@ -131,7 +131,9 @@ class KAGStaticPipeline(SolverPipelineABC):
             tasks = await self.planning(query, context, **kwargs)
             if not tasks:
                 think_response = context.kwargs.get("thinker", "")
-                answer = await self.generator.ainvoke(query + "\n" + think_response, context, **kwargs)
+                answer = await self.generator.ainvoke(
+                    query + "\n" + think_response, context, **kwargs
+                )
             else:
                 for task in tasks:
                     context.add_task(task)
